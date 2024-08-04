@@ -8,19 +8,19 @@ function App() {
   const input2Ref = useRef();
 
   function korruta() {
-    muudaVastus(input1Ref.current.value * input2Ref.current.value);
+    muudaVastus(Number(input1Ref.current.value) * Number(input2Ref.current.value));
   }
 
   function lahuta() {
-    muudaVastus(input1Ref.current.value - input2Ref.current.value);
+    muudaVastus(Number(input1Ref.current.value) - Number(input2Ref.current.value));
   }
 
   function jaga() {
-    muudaVastus(input1Ref.current.value / input2Ref.current.value);
+    muudaVastus(Number(input1Ref.current.value) / Number(input2Ref.current.value));
   }
 
   function liida() {
-    muudaVastus(input1Ref.current.value + input2Ref.current.value);
+    muudaVastus(Number(input1Ref.current.value) + Number(input2Ref.current.value));
   }
 
   return (
