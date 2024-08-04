@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useRef, useState } from 'react';
 
 function App() {
+  const [vastus, muudaVastus] = useState(0);
+  const input1Ref = useRef();
+  const input2Ref = useRef();
+
+  function korruta() {
+    muudaVastus(input1Ref.current.value * input2Ref.current.value);
+  }
+
+  function lahuta() {
+    muudaVastus(input1Ref.current.value - input2Ref.current.value);
+  }
+
+  function jaga() {
+    muudaVastus(input1Ref.current.value / input2Ref.current.value);
+  }
+
+  function liida() {
+    muudaVastus(input1Ref.current.value + input2Ref.current.value);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input ref={input1Ref} type="text"/>
+      <input ref={input2Ref} type="text"/>
+      <br />
+      {vastus}
+      <button onClick={korruta}>Korruta</button>
+      <button onClick={lahuta}>Lahuta</button>
+      <button onClick={jaga}>Jaga</button>
+      <button onClick={liida}>Liida</button>
     </div>
   );
 }
